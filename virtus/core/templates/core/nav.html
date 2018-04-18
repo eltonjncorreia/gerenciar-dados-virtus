@@ -1,0 +1,45 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'core:dashboard' %}">SB Admin v2.0</a>
+    </div>
+    <!-- /.navbar-header -->
+
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                   <h2>Dashboard</h2>
+                    <!-- /input-group -->
+                </li>
+                <li>
+                    <a href="{% url 'core:dashboard' %}"><i class="fa fa-dashboard fa-fw"></i> Todos</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> API <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="">Pedidos</a>
+                        </li>
+                        <li>
+                            <a href="">Itens</a>
+                        </li>
+
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</nav>
