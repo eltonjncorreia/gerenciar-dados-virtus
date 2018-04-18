@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, resolve_url as r
 
@@ -17,9 +18,16 @@ def edit(request, slug):
         form = ClienteModelForm(request.POST, instance=cliente)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(r('core:dashboard'))
+            messages.success(request, 'Atualização realizada')
+            return HttpResponseRedirect(r('core:edit-cliente', slug=slug))
     else:
         form = ClienteModelForm(instance=cliente)
 
-    return render(request, 'core/edicao.html', {'form': form})
+    return render(request, 'core/edicao.html', {'form': form, 'clientes': cliente.slug})
+
+
+def deletar(request, slug):
+    Cliente.objects.filter(slug=slug).delete()
+    messages.success(request, 'Deletado com sucesso')
+    return HttpResponseRedirect(r('core:dashboard'))
 
