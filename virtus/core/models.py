@@ -32,7 +32,7 @@ class Endereco(models.Model):
     tipo = models.CharField('tipo', choices=TIPO, max_length=1)
     cep = models.CharField('cep', max_length=8, validators=[RegexValidator(r'^\d+$')])
     rua = models.CharField('Rua', max_length=255)
-    numero=models.IntegerField('numero')
+    numero=models.CharField('numero', null=True, blank=True, max_length=50)
     complemento = models.CharField('complemento', max_length=100)
     cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE, related_name='enderecos')
 
