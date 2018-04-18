@@ -6,7 +6,7 @@ from virtus.core.models import Cliente, Endereco
 
 
 def dashboard(request):
-    clientes = Cliente.objects.all()
+    clientes = Cliente.objects.prefetch_related('enderecos').all()
     return render(request, 'core/index.html', {'clientes': clientes})
 
 
