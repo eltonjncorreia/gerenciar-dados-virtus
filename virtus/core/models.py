@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from django.shortcuts import resolve_url as r
 
 
 class Cliente(models.Model):
@@ -7,6 +8,7 @@ class Cliente(models.Model):
     email = models.EmailField('email', max_length=255)
     telefone = models.CharField('telefone', max_length=11, validators=[RegexValidator(r'^\d+$')])
     cpf = models.CharField('cpf', max_length=11, validators=[RegexValidator(r'^\d+$')])
+    slug = models.SlugField('Slug')
 
     class Meta:
         ordering = ['nome']
@@ -15,6 +17,9 @@ class Cliente(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        return r('core:edit-cliente', self.slug)
 
 
 class Endereco(models.Model):
@@ -29,6 +34,7 @@ class Endereco(models.Model):
     rua = models.CharField('Rua', max_length=255)
     numero=models.IntegerField('numero')
     complemento = models.CharField('complemento', max_length=100)
+    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['tipo']
