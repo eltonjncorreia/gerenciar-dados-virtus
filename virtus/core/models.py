@@ -34,7 +34,7 @@ class Endereco(models.Model):
     rua = models.CharField('Rua', max_length=255)
     numero=models.IntegerField('numero')
     complemento = models.CharField('complemento', max_length=100)
-    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
+    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE, related_name='enderecos')
 
     class Meta:
         ordering = ['tipo']
