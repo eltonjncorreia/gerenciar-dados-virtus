@@ -1,12 +1,14 @@
 from django.db import models
 
+from virtus.core.models import Cliente
+
 
 class Pedido(models.Model):
     numero = models.IntegerField('numero')
     data = models.DateField('data', auto_now_add=True)
     loja = models.CharField('loja', max_length=255)
-    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
-    valor_total = models.DecimalField('valor', max_digits=10, decimal_places=2,)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    valor_total = models.DecimalField('valor Total', max_digits=10, decimal_places=2,)
 
     class Meta:
         ordering = ['numero']
@@ -23,6 +25,7 @@ class Item(models.Model):
     valor = models.DecimalField('valor', max_digits=10, decimal_places=2,)
     unitario = models.DecimalField('Unitário', max_digits=10, decimal_places=2)
     quantidade = models.IntegerField('quantidade')
+    pedido = models.ForeignKey('Pedido', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['codigo']
