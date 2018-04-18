@@ -1,3 +1,10 @@
 from django.contrib import admin
+from virtus.core.models import Cliente, Endereco
 
-# Register your models here.
+
+class ClienteAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ['nome']}
+
+
+admin.site.register(Cliente, ClienteAdmin)
+admin.site.register(Endereco)
