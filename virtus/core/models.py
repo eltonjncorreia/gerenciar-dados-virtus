@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 class Cliente(models.Model):
     nome = models.CharField('nome', max_length=255)
     email = models.EmailField('email', max_length=255)
-    telefone = models.IntegerField('telefone')
+    telefone = models.CharField('telefone', max_length=11, validators=[RegexValidator(r'^\d+$')])
     cpf = models.CharField('cpf', max_length=11, validators=[RegexValidator(r'^\d+$')])
 
     class Meta:
