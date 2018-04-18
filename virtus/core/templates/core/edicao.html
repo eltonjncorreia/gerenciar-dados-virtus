@@ -7,6 +7,18 @@
     <br>
     <div class="row">
 
+        {% if messages %}
+
+        <div class="alert alert-success"  >
+
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
         <!-- /.panel -->
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -48,7 +60,10 @@
                                     {{ form.slug }}
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-primary">Voltar</button>
+
+                                <a href="{% url 'core:delete' clientes %}" type="submit" class="btn btn-danger">Deletar</a>
                             </form>
                         </div>
 
