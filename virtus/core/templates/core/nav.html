@@ -22,15 +22,18 @@
                 <li>
                     <a href="{% url 'core:dashboard' %}"><i class="fa fa-dashboard fa-fw"></i> Todos</a>
                 </li>
+                <li>
+                    <a href="/admin/login/?next=/admin/"><i class="fa fa-database fa-fw"></i> Admin</a>
+                </li>
 
                 <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> API <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="http://localhost:8000/v1/pedidos/" target="_blank">Pedidos</a>
+                            <a href="/v1/pedidos/" target="_blank">Pedidos</a>
                         </li>
                         <li>
-                            <a href="http://localhost:8000/v1/itens/" target="_blank">Itens</a>
+                            <a href="/v1/itens/" target="_blank">Itens</a>
                         </li>
 
                     </ul>
