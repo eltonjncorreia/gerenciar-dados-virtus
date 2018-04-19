@@ -12,8 +12,11 @@ def dashboard(request):
 
 
 def edit(request, slug):
-    cliente = Cliente.objects.get(slug=slug)
-    endereco = Endereco.objects.get(cliente=cliente)
+    try:
+        cliente = Cliente.objects.get(slug=slug)
+        endereco = Endereco.objects.get(cliente=cliente)
+    except Endereco.DoesNotExist:
+        endereco = None
 
     if request.method == 'POST':
         form_endereco = EnderecoModelForm(request.POST, instance=endereco)
