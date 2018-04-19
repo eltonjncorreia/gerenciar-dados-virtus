@@ -33,32 +33,79 @@
 
                             <form action="." method="post">
                                 {% csrf_token %}
-                                <div class="form-group">
-                                    <label>{{ form.nome.label }}</label>
-                                    {{ form.nome.errors }}
-                                    {{ form.nome }}
-                                </div>
-                                <div class="form-group">
-                                    <label >{{ form.email.label}}</label>
-                                    {{ form.email.errors }}
-                                    {{ form.email }}
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+
+                                        <div class="form-group">
+                                            <label>{{ cliente.nome.label }}</label>
+                                            {{ cliente.nome.errors }}
+                                            {{ cliente.nome }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label >{{ cliente.email.label}}</label>
+                                            {{ cliente.email.errors }}
+                                            {{ cliente.email }}
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label >{{ cliente.telefone.label}}</label>
+                                            {{ cliente.telefone.errors }}
+                                            {{ cliente.telefone }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label >{{ cliente.cpf.label}}</label>
+                                            {{ cliente.cpf.errors }}
+                                            {{ cliente.cpf }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label >{{ cliente.slug.label}}</label>
+                                            {{ cliente.slug.errors }}
+                                            {{ cliente.slug }}
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label >{{ endereco.tipo.label}}</label>
+                                            {{ endereco.tipo.errors }}
+                                            {{ endereco.tipo }}
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label >{{ endereco.rua.label}}</label>
+                                            {{ endereco.rua.errors }}
+                                            {{ endereco.rua }}
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label >{{ endereco.numero.label}}</label>
+                                            {{ endereco.numero.errors }}
+                                            {{ endereco.numero }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label >{{ endereco.complemento.label}}</label>
+                                            {{ endereco.complemento.errors }}
+                                            {{ endereco.complemento }}
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label >{{ endereco.cep.label}}</label>
+                                            {{ endereco.cep.errors }}
+                                            {{ endereco.cep }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label >{{ endereco.cliente.label}}</label>
+                                            {{ endereco.cliente.errors }}
+                                            {{ endereco.cliente }}
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <div class="form-group">
-                                    <label >{{ form.telefone.label}}</label>
-                                    {{ form.telefone.errors }}
-                                    {{ form.telefone }}
-                                </div>
-                                <div class="form-group">
-                                    <label >{{ form.cpf.label}}</label>
-                                    {{ form.cpf.errors }}
-                                    {{ form.cpf }}
-                                </div>
-                                <div class="form-group">
-                                    <label >{{ form.slug.label}}</label>
-                                    {{ form.slug.errors }}
-                                    {{ form.slug }}
-                                </div>
+
+
+
 
                                 <button type="submit" class="btn btn-success">Submit</button>
                                 <button type="submit" class="btn btn-primary">Voltar</button>
