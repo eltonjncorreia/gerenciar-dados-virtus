@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.shortcuts import resolve_url as r
 
-from virtus.core.forms import ClienteModelForm
+from virtus.core.forms import ClienteModelForm, EnderecoModelForm
 from virtus.core.models import Cliente
 
 
@@ -29,16 +29,21 @@ class EditarTest(TestCase):
 
     def test_context(self):
         """tem instancia de form no contexto"""
-        form = self.resp.context['form']
+        form = self.resp.context['cliente']
         self.assertIsInstance(form, ClienteModelForm)
+
+    def test_context_endereco(self):
+        """tem instancia de form no contexto"""
+        form = self.resp.context['endereco']
+        self.assertIsInstance(form, EnderecoModelForm)
 
     def test_html(self):
         """Html contem tags"""
         tags = (('<form', 1),
-                ('<input', 6),
-                ('type="text"', 4),
+                ('<input', 10),
+                ('type="text"', 8),
                 ('type="email"', 1),
-                ('type="submit"', 1))
+                ('type="submit"', 3))
 
         for text, count in tags:
             with self.subTest():
