@@ -5,10 +5,12 @@
 -  clone o projeto ``` https://github.com/eltonjncorreia/gerenciar-dados-virtus.git virtus ```
 -  entre no diretorio ``` cd virtus ```
 -  crie um ambiente virtual da maneira que preferir ``` python -m venv .venv ```
-
+-
 -  Instale as dependencias.
 -  Estou usando o Pipenv, então use ``` pipenv install Pipfile```
--  ou  se estiver usando pip ``` pip install -r requirements.txt ```
+-  depois ative a virtual env ``` pipenv shell``
+-  ou  se estiver usando pip, ative o virtual env ``` source .venv/bin/activate ```
+-  depois ``` pip install -r requirements.txt ```
 
 -  Configure a instância com o .env  ``` cp contrib/env-sample .env ```
 -  rode os testes ``` python manage.py test ```
