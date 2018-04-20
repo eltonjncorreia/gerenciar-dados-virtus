@@ -18,6 +18,7 @@
 ### Obs:
 ##### para criar Cliente, Endereços, Pedidos e Itens o usuario tem que estar logado.
 
+-  Crie as migrações com o camando ``` python manage.py migrate ```
 -  crie um usuario com o comando ```python manage.py createsuperuser```
 -  execute a aplicação ```python manage.py runserver```
 -  realize login no menu superior direito.
